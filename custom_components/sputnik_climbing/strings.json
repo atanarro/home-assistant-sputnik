@@ -1,0 +1,17 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Sputnik Climbing",
+        "description": "Add Sputnik Climbing occupancy sensors to Home Assistant."
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to Sputnik API"
+    },
+    "abort": {
+      "already_configured": "Sputnik Climbing is already configured"
+    }
+  }
+}
+
