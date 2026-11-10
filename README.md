@@ -17,6 +17,7 @@ Home Assistant integration that shows real-time occupancy data for Sputnik climb
 - Berango
 - Legazpi
 - Chamberí
+- Guindalera
 
 ## Installation
 
