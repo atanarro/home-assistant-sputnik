@@ -27,7 +27,7 @@ class SputnikClimbingAPI:
             "X-Requested-With": "XMLHttpRequest",
         })
 
-        # Parse response into simple dict
+        # Parse response into simple dict, skipping venues with no reported capacity
         return {
             item["Recinto"].replace(" Principal", "").lower(): {
                 "current": item["Ocupacion"],
@@ -35,5 +35,6 @@ class SputnikClimbingAPI:
                 "percentage": round(item["Ocupacion"] / item["Aforo"] * 100, 1),
             }
             for item in resp.json()
+            if item["Aforo"] > 0
         }
 
