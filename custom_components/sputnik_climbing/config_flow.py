@@ -1,10 +1,14 @@
 """Config flow for Sputnik Climbing integration."""
 
+import logging
+
 from homeassistant import config_entries
 from homeassistant.data_entry_flow import FlowResult
 
 from .const import DOMAIN
 from .api import SputnikClimbingAPI
+
+_LOGGER = logging.getLogger(__name__)
 
 
 class SputnikClimbingConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
@@ -30,6 +34,7 @@ class SputnikClimbingConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     )
                 errors["base"] = "cannot_connect"
             except Exception:
+                _LOGGER.exception("Error connecting to Sputnik Climbing API")
                 errors["base"] = "cannot_connect"
 
         return self.async_show_form(step_id="user", errors=errors)
